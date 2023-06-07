@@ -4,7 +4,7 @@ import MessageInput from "../MessageInput";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { postMessage } from "../../store/channel";
+import { addChannelMessage, getAChannel, postMessage } from "../../store/channel";
 import { io } from 'socket.io-client';
 let socket;
 // maybe pass in an object from SelectedServer?
@@ -17,42 +17,56 @@ const SelectedChannel = () => {
   
   const dispatch = useDispatch();
   
-  useEffect(() => {
-    setSocketRoom(`channel${channelId}`);
-  }, [channelId]);
   
   useEffect(() => {
     let isActive = true;
     const channelMessagesObj = currentChannel?.messages;
-
+    
     if (channelMessagesObj && isActive)
-      setMessages(Object.values(channelMessagesObj));
-
+    setMessages(Object.values(channelMessagesObj));
+    
     return () => (isActive = false);
   }, [currentChannelMessages]);
-
+  
   useEffect(() => {
-
+    
     // create websocket/connect
     socket = io();
-
+    
     socket.on("message", (data) => {
       console.log(data)
-      setMessages((messages) => [...messages, data["message"]]);
+      // setMessages((messages) => [...messages, data["message"]]);
+      dispatch(addChannelMessage(data))
     });
+    
+    // socket.emit("join_room", {"room": socketRoom})
 
     // when component unmounts, disconnect
     return (() => {
       socket.disconnect()
     })
   }, [])
-
-  // additional code to be added
-
-  const sendMessage = async (formData) => {
-    await dispatch(postMessage(channelId, formData))
+  
+  useEffect(() => {
+    setSocketRoom(`channel${channelId}`);
+    socket.emit("join_room", {"room": socketRoom})
+    return(()=> {
+      socket.emit("leave_room", {"room": socketRoom})
+    })
+  }, [channelId, socketRoom]);
+  // useEffect(() => {
+    
+    //   socket.emit("join_room", {"room": socketRoom})
+    
+    // }, [socketRoom])
+    
+    
+    // additional code to be added
+    
+    const sendMessage = async (formData) => {
+      await dispatch(postMessage(channelId, formData))
     .then((message) =>
-      socket.send({ message, room: socketRoom })
+      socket.emit( 'message', {'message': message, 'room': socketRoom} )
     );
   };
 

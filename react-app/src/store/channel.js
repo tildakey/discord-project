@@ -168,6 +168,7 @@ const channelsReducer = (
 
         case ADD_CHANNEL_MESSAGE: {
             const liveChatState = global.structuredClone(state)
+            console.log(action.message)
             liveChatState.currentChannel.messages[action.message.id] = action.message;
             return liveChatState;
         }
