@@ -128,9 +128,7 @@ export const deleteChannelMessage =
 const channelsReducer = (
     state = {
         channels: {},
-        currentChannel: { channel: null, pins: {} },
-        userDmChannels: {},
-        dmCurrentChannel: {},
+        currentChannel: { channel: null },
     },
     action
 ) => {
@@ -169,8 +167,9 @@ const channelsReducer = (
         }
 
         case ADD_CHANNEL_MESSAGE: {
-            newState.currentChannel.messages[action.message.id] = action.message;
-            return newState;
+            const liveChatState = global.structuredClone(state)
+            liveChatState.currentChannel.messages[action.message.id] = action.message;
+            return liveChatState;
         }
 
         case UPDATE_CHANNEL_MESSAGE: {

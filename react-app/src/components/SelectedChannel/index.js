@@ -29,7 +29,7 @@ const SelectedChannel = () => {
       setMessages(Object.values(channelMessagesObj));
 
     return () => (isActive = false);
-  }, [currentChannel, currentChannelMessages]);
+  }, [currentChannelMessages]);
 
   useEffect(() => {
 

@@ -19,5 +19,4 @@ socketio = SocketIO(cors_allowed_origins=origins)
 
 @socketio.on("message")
 def on_chat_sent(data):
-    print(data, "!##$!%$#!$%!$!#!$#%$@%$%#$!@#!%$@%$^@%@$$%#$^%$#^%$#^#%#$%#$^^$#%")
-    send({'message': data['message']}, room=data['room'],)
+    send({'message': data['message']}, room=data['room'], broadcase=True)
