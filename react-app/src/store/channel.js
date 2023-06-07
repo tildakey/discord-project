@@ -88,10 +88,6 @@ export const getAChannel = (channelId) => async (dispatch) => {
     return channel;
 };
 
-// export const clearCurrentChannel = () => {
-//     return { type: CLEAR_CURRENT_CHANNEL };
-//   };
-
 //add new message to the store
 export const addChannelMessage = (message) => {
     return { type: ADD_CHANNEL_MESSAGE, message };
@@ -104,6 +100,8 @@ export const postMessage = (channelId, formData) => async (dispatch) => {
     });
 
     const newMessage = await res.json();
+
+    console.log(newMessage)
 
     dispatch(addChannelMessage(newMessage));
     return newMessage;
@@ -138,15 +136,6 @@ const channelsReducer = (
 ) => {
     let newState = { ...state };
     switch (action.type) {
-        // case CLEAR_CHANNELS_STORE: {
-        //     newState = {
-        //         channels: {},
-        //         currentChannel: { channel: null, pins: {} },
-        //         userDmChannels: {},
-        //         dmCurrentChannel: {},
-        //     };
-        //     return newState;
-        // }
 
         case SET_USER_DM_CHANNELS: {
             newState.userDmChannels = action.dmRooms;
@@ -178,11 +167,6 @@ const channelsReducer = (
             newState.currentChannel = action.channel;
             return newState;
         }
-
-        // case CLEAR_CURRENT_CHANNEL: {
-        //     newState.currentChannel = null;
-        //     return newState;
-        // }
 
         case ADD_CHANNEL_MESSAGE: {
             newState.currentChannel.messages[action.message.id] = action.message;
