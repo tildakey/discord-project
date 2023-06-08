@@ -14,7 +14,7 @@ class Server(db.Model):
     '''
     __tablename__ = 'servers'
 
-      if environment == "production":
+    if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
