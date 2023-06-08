@@ -33,7 +33,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
-    )if environment == "production":
+    )
+    if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
     op.create_table('servers',
@@ -46,7 +47,8 @@ def upgrade():
     sa.Column('updated_at', sa.Date(), nullable=True),
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
-    )if environment == "production":
+    )
+    if environment == "production":
         op.execute(f"ALTER TABLE servers SET SCHEMA {SCHEMA};")
 
     op.create_table('channels',
@@ -60,7 +62,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.ForeignKeyConstraint(['server_id'], ['servers.id'], ),
     sa.PrimaryKeyConstraint('id')
-    )if environment == "production":
+    )
+    if environment == "production":
         op.execute(f"ALTER TABLE channels SET SCHEMA {SCHEMA};")
 
     op.create_table('servermembers',
@@ -72,7 +75,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['server_id'], ['servers.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
-    )if environment == "production":
+    )
+    if environment == "production":
         op.execute(f"ALTER TABLE servermembers SET SCHEMA {SCHEMA};")
 
     op.create_table('channelmembers',
@@ -84,7 +88,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['channel_id'], ['channels.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
-    )if environment == "production":
+    )
+    if environment == "production":
         op.execute(f"ALTER TABLE channelmembers SET SCHEMA {SCHEMA};")
 
     op.create_table('channelmessages',
@@ -98,7 +103,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['channel_id'], ['channels.id'], ),
     sa.ForeignKeyConstraint(['sender_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
-    )if environment == "production":
+    )
+    if environment == "production":
         op.execute(f"ALTER TABLE channelmessages SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
