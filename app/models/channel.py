@@ -16,8 +16,8 @@ class Channel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
-    server_id = db.Column(db.Integer, db.ForeignKey('servers.id'))
-    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    server_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('servers.id')))
+    owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     dm_channel = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.Date, default = datetime.datetime.now())
     updated_at = db.Column(db.Date, default = datetime.datetime.now())
@@ -53,8 +53,8 @@ class ChannelMember(db.Model):
     __tablename__ = 'channelMembers'
 
     id = db.Column(db.Integer, primary_key=True)
-    channel_id = db.Column(db.Integer, db.ForeignKey('channels.id', passive_deletes=True), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    channel_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('channels.id'), passive_deletes=True), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     created_at = db.Column(db.Date, default = datetime.datetime.now())
     updated_at = db.Column(db.Date, default = datetime.datetime.now())
 
@@ -77,8 +77,8 @@ class ChannelMessage(db.Model):
     __tablename__ = 'channelMessages'
 
     id = db.Column(db.Integer, primary_key=True)
-    channel_id = db.Column(db.Integer, db.ForeignKey('channels.id'))
-    sender_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    channel_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('channels.id')))
+    sender_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     content = db.Column(db.String(1500), nullable=False)
     picture = db.Column(db.String(2500))
     created_at = db.Column(db.Date, default = datetime.datetime.now())

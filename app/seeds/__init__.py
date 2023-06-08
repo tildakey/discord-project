@@ -1,7 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .servers import seed_servers, undo_servers, seed_server_members, undo_server_members
-from .server_channels import seed_channels, undo_channels, seed_channel_messages, seed_dm_channels
+from .server_channels import seed_channels, undo_channels, seed_channel_messages, seed_dm_channels, undo_channel_messages
 from .channel_members import seed_channel_members, undo_channel_members
 
 
@@ -20,12 +20,20 @@ def seed():
         # command, which will  truncate all tables prefixed with
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
-        undo_users()
-        undo_servers()
-        undo_server_members()
-        undo_seed_messages()
+        # undo_users()
+        # undo_servers()
+        # undo_server_members()
+        # undo_seed_messages()
+        # undo_channel_members()
+        # undo_channel_messages()
+        # undo_channels()
+        undo_channel_messages()
         undo_channel_members()
         undo_channels()
+        undo_server_members()
+        undo_servers()
+        undo_users()
+        
     seed_users()
     seed_servers()
     seed_server_members()
@@ -40,10 +48,17 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_users()
-    # Add other undo functions here
-    undo_servers()
-    undo_server_members()
-    undo_channels()
-    undo_channel_members()
+    # undo_users()
+    # # Add other undo functions here
+    # undo_servers()
+    # undo_server_members()
+    # undo_channels()
+    # undo_channel_members()
+    # undo_channel_messages()
     # undo_seed_messages()
+    undo_channel_messages()
+    undo_channel_members()
+    undo_channels()
+    undo_server_members()
+    undo_servers()
+    undo_users()
