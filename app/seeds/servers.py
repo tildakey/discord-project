@@ -38,42 +38,6 @@ def seed_server_members():
             db.session.add(members)
             db.session.commit()
 
-    # for k in range(1, 5):
-    #     random_user_id = db.session.query(User.id).order_by(func.random()).first()[0]
-    #     seed_server = Server(
-    #         name=f'Server {k}',
-    #         created_by = random_user_id
-    #     )
-    #     db.session.add(seed_server)
-    #     db.session.commit()
-
-    #     member1 = ServerMember(
-    #         user_id = 1,
-    #         server_id = k
-    #     )
-    #     member2 = ServerMember(
-    #         user_id = 2,
-    #         server_id = k
-    #     )
-    #     member3 = ServerMember(
-    #         user_id = 3,
-    #         server_id = k
-    #     )
-    #     member4 = ServerMember(
-    #         user_id = 4,
-    #         server_id = k
-    #     )
-    #     member5 = ServerMember(
-    #         user_id = 5,
-    #         server_id = j
-    #     )
-    #     db.session.add(member1)
-    #     db.session.add(member2)
-    #     db.session.add(member3)
-    #     db.session.add(member4)
-    #     db.session.add(member5)
-    #     db.session.commit()
-
 
 def undo_servers():
     if environment == "production":

@@ -64,6 +64,9 @@ class ServerMember(db.Model):
 
     __tablename__ = 'servermembers'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
     server_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('servers.id'), passive_deletes=True), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
