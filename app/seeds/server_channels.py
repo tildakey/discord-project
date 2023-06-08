@@ -31,18 +31,18 @@ def seed_channels():
         db.session.add(new_channel)
 
 
-def seed_dm_channels():
-    # --- creating dm channels IDs 6 - 8
-    dms = [{'dm_channel':True, 'owner_id': 1}, {'dm_channel':True, 'owner_id': 2}, {'dm_channel':True, 'owner_id': 3}]
-    for dm in dms:
-        new_dm = Channel(owner_id=dm['owner_id'], dm_channel=dm['dm_channel'])
-        print(new_dm, "!@#!##!##!#!#!#!@#@")
-        db.session.add(new_dm)
-        db.session.commit()
+# def seed_dm_channels():
+#     # --- creating dm channels IDs 6 - 8
+#     dms = [{'dm_channel':True, 'owner_id': 1}, {'dm_channel':True, 'owner_id': 2}, {'dm_channel':True, 'owner_id': 3}]
+#     for dm in dms:
+#         new_dm = Channel(owner_id=dm['owner_id'], dm_channel=dm['dm_channel'])
+#         print(new_dm, "!@#!##!##!#!#!#!@#@")
+#         db.session.add(new_dm)
+#         db.session.commit()
 
 def seed_channel_messages():
     # i === channels
-    for i in range(1, 8):
+    for i in range(1, 5):
         channel = Channel.query.get(i)
         print(channel)
         if channel.name == 'General Chat':
