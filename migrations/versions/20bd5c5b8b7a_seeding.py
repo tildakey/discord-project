@@ -72,7 +72,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['server_id'], ['servers.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
-    )if environment == "production":
+    )
+    if environment == "production":
         op.execute(f"ALTER servermembers users SET SCHEMA {SCHEMA};")
     op.create_table('channelmembers',
     sa.Column('id', sa.Integer(), nullable=False),
