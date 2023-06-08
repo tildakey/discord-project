@@ -14,6 +14,9 @@ class Server(db.Model):
     '''
     __tablename__ = 'servers'
 
+      if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(70), nullable=False)
     server_icon = db.Column(db.String(255))
