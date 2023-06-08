@@ -86,7 +86,7 @@ def undo_servers():
 
 def undo_server_members():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.serverMembers RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.servermembers RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM servermembers"))
 
