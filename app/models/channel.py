@@ -53,7 +53,7 @@ class ChannelMember(db.Model):
     member from User Model
 
     '''
-    __tablename__ = 'channelMembers'
+    __tablename__ = 'channelmembers'
 
     id = db.Column(db.Integer, primary_key=True)
     channel_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('channels.id'), passive_deletes=True), nullable=False)
@@ -77,7 +77,7 @@ class ChannelMessage(db.Model):
     sender from User Model
 
     '''
-    __tablename__ = 'channelMessages'
+    __tablename__ = 'channelmessages'
 
     id = db.Column(db.Integer, primary_key=True)
     channel_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('channels.id')))

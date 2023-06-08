@@ -62,7 +62,7 @@ class ServerMember(db.Model):
 
     '''
 
-    __tablename__ = 'serverMembers'
+    __tablename__ = 'servermembers'
 
     id = db.Column(db.Integer, primary_key=True)
     server_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('servers.id'), passive_deletes=True), nullable=False)
