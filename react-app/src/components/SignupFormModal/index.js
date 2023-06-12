@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
-import "./SignupForm.css";
+import "../EditAChannelModal/EditAChannelModal.css"
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function SignupFormModal() {
 	};
 
 	return (
-		<>
+		<div className="modal-edit">
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit}>
 				<ul>
@@ -76,7 +76,7 @@ function SignupFormModal() {
 				</label>
 				<button type="submit">Sign Up</button>
 			</form>
-		</>
+		</div>
 	);
 }
 
