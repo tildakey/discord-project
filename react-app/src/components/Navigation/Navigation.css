@@ -1,7 +1,7 @@
-.profile-dropdown {
-  position: absolute;
-}
-
-.hidden {
-  display: none;
+.nav{
+  background-image:url(https://res.cloudinary.com/dhruiovd0/image/upload/v1686538085/tried-to-make-the-discord-clyde-logo-more-similar-to-the-v0-g2bha52fh9v91_w9wnla_bx8w6w.webp);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }
