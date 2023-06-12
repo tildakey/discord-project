@@ -12,10 +12,13 @@ let socket;
 // maybe pass in an object from SelectedServer?
 const SelectedChannel = () => {
   const currentChannel = useSelector((state) => state.channelsReducer.currentChannel);
+  const currentUserId = useSelector((state) => state.session.user.id)
+  const currentServerOwnerId = useSelector((state) => state.serversReducer.currentServer.ownerId.id)
   const currentChannelMessages = useSelector((state) => state.channelsReducer.currentChannel.messages);
   const channelId = currentChannel?.id;
   const [socketRoom, setSocketRoom] = useState();
   const [messages, setMessages] = useState([]);
+  const isServerOwner = currentUserId === currentServerOwnerId
 
   const dispatch = useDispatch();
 
@@ -75,10 +78,13 @@ const SelectedChannel = () => {
   return (
     <div className="move-it-over">
       <h1>{currentChannel.name}</h1>
-      <OpenModalButton
-        buttonText="Edit a Channel"
-        modalComponent={<EditAChannel />}
-      />
+      {isServerOwner && (
+        <OpenModalButton
+          buttonText="Edit a Channel"
+          modalComponent={<EditAChannel />}
+        />
+      )}
+
       {currentChannel?.messages && <Messages messages={messages} />}
 
       <MessageInput sendMessage={sendMessage} className="chat_input" />

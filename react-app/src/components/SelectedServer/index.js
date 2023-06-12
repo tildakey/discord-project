@@ -16,10 +16,13 @@ const SelectedServer = () => {
     const [channelLoaded, setChannelLoaded] = useState(false);
 
     const dispatch = useDispatch();
+    const currentUserId = useSelector((state) => state.session.user.id)
+  const currentServerOwnerId = useSelector((state) => state.serversReducer.currentServer.ownerId.id)
     const serversObj = useSelector((state) => state.serversReducer);
     const user = useSelector((state) => state.session.user);
     const membersObj = useSelector((state) => state.serversReducer.currentServer.members)
     const channelsObj = useSelector((state) => state.serversReducer.currentServer.channels)
+    const isServerOwner = currentUserId === currentServerOwnerId
 
     let history = useHistory();
     const [member, setMember] = useState(false);
@@ -40,7 +43,10 @@ const SelectedServer = () => {
         loaded && (
           <div>
             <div className="move-it-over">
+            {isServerOwner && (
               <EditAServerModal/>
+        )}
+              
             </div>
             {/* <div className="server-channel-container">
             {channelLoaded && (
