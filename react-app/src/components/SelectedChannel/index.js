@@ -9,7 +9,6 @@ import EditAChannel from "../EditAChannelModal";
 import { addChannelMessage, getAChannel, postMessage } from "../../store/channel";
 import { io } from 'socket.io-client';
 let socket;
-// maybe pass in an object from SelectedServer?
 const SelectedChannel = () => {
   const currentChannel = useSelector((state) => state.channelsReducer.currentChannel);
   const currentUserId = useSelector((state) => state.session.user.id)
