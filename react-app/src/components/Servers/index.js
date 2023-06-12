@@ -10,8 +10,6 @@ import { Redirect } from "react-router-dom";
 
 const Servers = ({ userServers }) => {
   const [loaded, setLoaded] = useState(false);
-  
-  userServers = Object.values(userServers)
 
   const dispatch = useDispatch();
   useEffect(() => {
