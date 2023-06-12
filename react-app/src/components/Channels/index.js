@@ -64,7 +64,7 @@ const Channels = ({currentChannels}) => {
                             onMouseLeave={() => setHoverId(null)}
                         >
                             <p>{channel.name}</p>
-                            {((ownerId === user.id && currentChannelId * 1 === channel.id) ||
+                            {/* {((ownerId === user.id && currentChannelId * 1 === channel.id) ||
                                 (ownerId === user.id && hoverId === channel.id)) &&
                                 channel.name !== "General Chat" && (
                                     <div className="">
@@ -73,7 +73,7 @@ const Channels = ({currentChannels}) => {
                                             modalComponent={<EditAChannel />}
                                         />
                                     </div>
-                                )}
+                                )} */}
                         </div>
                     </NavLink>
                 ))}
