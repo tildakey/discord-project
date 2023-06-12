@@ -26,7 +26,7 @@ const Members = () => {
           <div className="" key={member.id * 2}>
             <img
               className="member_photo"
-              src={`${member.profile_pic}`}
+              src={`${member.profilePic}`}
               alt="profile pic"
             ></img>
             <h4>{member.username}</h4>

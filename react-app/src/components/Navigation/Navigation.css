@@ -1,7 +1,12 @@
 .nav{
-  background-image:url(https://res.cloudinary.com/dhruiovd0/image/upload/v1686538085/tried-to-make-the-discord-clyde-logo-more-similar-to-the-v0-g2bha52fh9v91_w9wnla_bx8w6w.webp);
+  background-image:url(https://res.cloudinary.com/dhruiovd0/image/upload/v1686540048/egs-discord-discord-s1-2560x1440-51474ee7abe3_2560x1440-e14a2b58e93768f0abc47dbf62a4ee86_psvpsy.jpg);
   background-size: cover;
   background-position: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 98vh;
+}
+
+.button-container{
+  padding: 10px;
+  border: 10px;
 }
