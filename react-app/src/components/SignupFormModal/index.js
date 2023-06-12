@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
+import { useHistory } from "react-router-dom";
 import "../EditAChannelModal/EditAChannelModal.css"
 
 function SignupFormModal() {
@@ -12,6 +13,7 @@ function SignupFormModal() {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
+	let history = useHistory()
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -21,6 +23,7 @@ function SignupFormModal() {
 				setErrors(data);
 			} else {
 				closeModal();
+				history.push('/discovery')
 			}
 		} else {
 			setErrors([
