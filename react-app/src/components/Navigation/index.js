@@ -12,7 +12,9 @@ function Navigation({ isLoaded }){
 
 	return (
 		<div>
-		<OpenModalButton
+		{sessionUser ? ( <> </>) : (
+        <>
+      <OpenModalButton
         buttonText="Log In"
         modalComponent={<LoginFormModal />}
       />
@@ -21,6 +23,7 @@ function Navigation({ isLoaded }){
         buttonText="Sign Up"
         modalComponent={<SignupFormModal />}
       /> 
+      </>)}
 		</div>
 	);
 }
