@@ -82,7 +82,6 @@ const CreateNewServer = () => {
       const formData = new FormData();
       let ownerId = user.id;
       formData.append('ownerId', ownerId);
-
       formData.append('name', name);
      
       await dispatch(postUserServer(formData))

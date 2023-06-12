@@ -11,10 +11,10 @@ import { getAChannel } from "../../store/channel";
 import { useEffect } from "react";
 import { getAllServers } from "../../store/servers";
 
-const LeftNav = () => {
+const LeftNav = ({userServers}) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user)
-  const userServers = useSelector((state) => state.serversReducer.userServers)
+  // const userServers = useSelector((state) => state.serversReducer?.userServers)
   let history = useHistory()
   const currentChannels = useSelector((state) => state.serversReducer?.currentServer?.channels)
 
@@ -23,6 +23,7 @@ const LeftNav = () => {
     dispatch(logout());
     history.push('/')
   };
+
   return (
     user && (
       <div className="left" id="left-nav">

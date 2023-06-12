@@ -15,9 +15,13 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const user = useSelector((state) => state.session.user);
+  const allServers = useSelector((state)=> state.serversReducer)
+  const userServers = Object.values(allServers.userServers)
+  
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
 
   return (
     <>
@@ -31,11 +35,11 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/discovery">
-          <LeftNavBar />
+          <LeftNavBar userServers={userServers}/>
             <DiscoveryPage />
           </Route>
           <Route path="/channels">
-          <LeftNavBar/>
+          <LeftNavBar userServers={userServers}/>
             <MainView />
           </Route>
         </Switch>
