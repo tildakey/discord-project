@@ -9,7 +9,7 @@ const Messages = ({ messages }) => {
           <div className="user">
             <img
               className="message-profilepic"
-              src={message.senderProfilePicture}
+              src={message.senderProfilePic}
               alt="profilePicture"
             />
           </div>
