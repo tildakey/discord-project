@@ -17,7 +17,7 @@ const SelectedServer = () => {
 
     const dispatch = useDispatch();
     const currentUserId = useSelector((state) => state.session.user.id)
-  const currentServerOwnerId = useSelector((state) => state.serversReducer.currentServer.ownerId.id)
+    const currentServerOwnerId = useSelector((state) => state.serversReducer.currentServer.ownerId.id)
     const serversObj = useSelector((state) => state.serversReducer);
     const user = useSelector((state) => state.session.user);
     const membersObj = useSelector((state) => state.serversReducer.currentServer.members)
@@ -37,8 +37,7 @@ const SelectedServer = () => {
         
         setLoaded(true);
         setChannelLoaded(true)
-      // }, [membersObj, user.id, history, serverId]);
-          }, [dispatch]);
+      }, [membersObj, user.id, history, serverId]);
       return (
         loaded && (
           <div>
