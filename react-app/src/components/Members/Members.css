@@ -12,6 +12,11 @@
     height: 100%;
   } */
 
+  html{
+    background-color: #424549;
+    color: #f0e3e3;
+  }
+  
   .member_photo {
     height: 40px;
     width: 40px;
@@ -24,7 +29,7 @@
     align-items: center;
     justify-content: flex-start;
     width: 100px;
-    background-color: #1c1d1f;
+    background-color: #7289da;
     gap: 10px;
     height: 100%;
     position: fixed;

@@ -1,3 +1,4 @@
+import "./EditAChannelModal.css"
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { deleteChannel, putChannel } from "../../store/channel";
@@ -114,14 +115,8 @@ const EditAChannel = ({ user, setShowModal }) => {
       <div className="options-container">
         <div className="edit-options">
           {name ? <h5>{name.toUpperCase()}</h5> : <h5>Channel Settings</h5>}
-          <h4 onClick={() => setSelected("Overview")}>Overview</h4>
-          <div
-            className="delete"
-            onClick={handleDelete}
-            style={{ cursor: "pointer", gap: "10px" }}
-          >
-            <h3>Delete Channel</h3>
-          </div>
+
+
         </div>
       </div>
       <div className="info">
@@ -132,7 +127,7 @@ const EditAChannel = ({ user, setShowModal }) => {
             </h3>
             <div className="Overview">
               <div className="channel-edit-name">
-                <label htmlFor="channel-name">CHANNEL NAME</label>
+                <label htmlFor="channel-name">CHANNEL NAME: </label>
 
                 <input
                   id="name-channel"
@@ -141,6 +136,14 @@ const EditAChannel = ({ user, setShowModal }) => {
                   value={name}
                   onChange={(e) => setName(e.target.value.replace(" ", "-"))}
                 ></input>
+                <div
+                  className="delete"
+                  onClick={handleDelete}
+                  style={{ cursor: "pointer", gap: "10px" }}
+                >
+                  <h3>Delete Channel</h3>
+                </div>
+
               </div>
             </div>
             {errors.length > 0 && (
@@ -153,12 +156,6 @@ const EditAChannel = ({ user, setShowModal }) => {
             {requireSave && (
               <div className="require-save-container">
                 <div className="require-save-message">
-                  <h4>Careful</h4>
-                  <div className="combine_--">
-                    <h4 className="left-">-</h4>
-                    <h4 className="right-">-</h4>
-                  </div>
-
                   <h4>Remember to save your changes!</h4>
                 </div>
                 <div className="reset-buttons">
@@ -181,7 +178,7 @@ const EditAChannel = ({ user, setShowModal }) => {
         )}
       </div>
       <div onClick={checkChanges} className="escape-container" style={{ cursor: "pointer" }}>
-        <h5 className="esc">ESC</h5>
+        <h5 className="esc">Cancel</h5>
       </div>
     </div>
   );

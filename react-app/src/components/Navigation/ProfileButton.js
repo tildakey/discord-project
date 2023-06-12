@@ -41,7 +41,7 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (
-    <div className="move-it-over">
+    <div>
       {user ? ( <> </>) : (
         <>
       <OpenModalButton

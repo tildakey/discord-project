@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addChannel, postChannel } from "../../store/channel";
 import { useModal } from "../../context/Modal";
+import "../EditAChannelModal/EditAChannelModal.css"
 
 const CreateANewChannel = () => {
   const [name, setName] = useState("");
@@ -74,7 +75,7 @@ const CreateANewChannel = () => {
   };
 
   return (
-    <div className="create-a-channel-contain">
+    <div className="modal-edit">
       <div>
         <h1 className="create-a-channel-title">Create Text Channel</h1>
       </div>

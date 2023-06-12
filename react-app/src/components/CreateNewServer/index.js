@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { postUserServer } from "../../store/servers";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-
+import "../EditAChannelModal/EditAChannelModal.css"
 
 const CreateNewServer = () => {
   const [showHomeCreate, setShowHomeCreate] = useState(true);
@@ -91,7 +91,7 @@ const CreateNewServer = () => {
   };
 
   return ( 
-    <div className="create-new-server-modal">
+    <div className="modal-edit">
       {showHomeCreate && (
         <div className="create-new-server-home">
           <h1>Create Server</h1>

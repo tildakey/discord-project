@@ -13,6 +13,8 @@
     background-color: #40444b;
     border-radius: 5px;
     overflow: auto;
+    border-style: double;
+    border-color: aliceblue;
   }
 
   #chat-message-input {
