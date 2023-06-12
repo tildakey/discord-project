@@ -1,0 +1,39 @@
+.messages {
+    max-height: 84vh;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    margin: 0 10px;
+    gap: 15px;
+}
+
+.message-profilepic {
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+}
+
+.username {
+    color: #7e63e0;
+  }
+
+  .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-start;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .message_content {
+    margin: 0 10px 10px 10px;
+  }

@@ -1,0 +1,13 @@
+.server-container {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .left-server-icons {
+    height: 44px;
+    width: 44px;
+    border-radius: 100%;
+  }

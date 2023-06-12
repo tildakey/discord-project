@@ -7,7 +7,7 @@ const EditAServerModal = () => {
   return (
     <>
         <OpenModalButton
-        buttonText="Edit a Server"
+        buttonText="Edit Server"
         modalComponent={<EditAServer />}
       />
     </>

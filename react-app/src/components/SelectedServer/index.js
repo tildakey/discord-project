@@ -1,3 +1,4 @@
+import "./SelectedServer.css"
 import Members from "../Members";
 import SelectedChannel from '../SelectedChannel'
 import Channels from "../Channels";
@@ -38,19 +39,19 @@ const SelectedServer = () => {
       return (
         loaded && (
           <div>
-            <div className="server-channel-container">
+            <div className="move-it-over">
+              <EditAServerModal/>
+            </div>
+            {/* <div className="server-channel-container">
             {channelLoaded && (
               <Channels channels={channelsObj} className="channels" />
-            )}
-          </div>
+              )}
+          </div> */}
           <div className="channel">
           {channelLoaded && (
             <SelectedChannel channelsObj={channelsObj} className="one_channel" />
           )}
         </div>
-
-              <div className="membership-container">
-                <h1>MEMBERS</h1>
                 {channelLoaded && (
                   <Members
                     serversObj={serversObj}
@@ -58,8 +59,7 @@ const SelectedServer = () => {
                     className="members"
                   />
                 )}
-              </div>
-              <EditAServerModal/>
+             
           </div>
         )
       );

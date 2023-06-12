@@ -9,7 +9,7 @@ import EditAChannel from "../EditAChannelModal";
 import OpenModalButton from "../OpenModalButton";
 
 
-const Channels = () => {
+const Channels = ({currentChannels}) => {
     const { channelId } = useParams();
     const [ownerId, setOwnerId] = useState();
     const [currentChannelId, setCurrentChannelId] = useState(channelId);
@@ -42,14 +42,14 @@ const Channels = () => {
     };
     return (
         loaded && (
-            <div className="channels">
-                <div className="all-channels-header">
-                    <h1>ALL CHANNELS</h1>
-                </div>
-                <div className="all-channels-header">
-                    <CreateChannelModal />
+            <div className="">
+                <div className="">
+                    {/* <h1>ALL CHANNELS</h1> */}
                 </div>
 
+                {/* <div className="">
+                    <CreateChannelModal />
+                </div> */}
                 {channels?.map((channel) => (
                     <NavLink
                         key={channel.id}
@@ -59,7 +59,7 @@ const Channels = () => {
                         onClick={() => handleChannelChange(channel.id)}
                     >
                         <div
-                            className="channel"
+                            className=""
                             onMouseEnter={() => setHoverId(channel.id)}
                             onMouseLeave={() => setHoverId(null)}
                         >
@@ -67,7 +67,7 @@ const Channels = () => {
                             {((ownerId === user.id && currentChannelId * 1 === channel.id) ||
                                 (ownerId === user.id && hoverId === channel.id)) &&
                                 channel.name !== "General Chat" && (
-                                    <div className="all-channels-right">
+                                    <div className="">
                                             <OpenModalButton
                                             buttonText="Edit a Channel"
                                             modalComponent={<EditAChannel />}

@@ -36,9 +36,10 @@ const Servers = ({ userServers }) => {
           >
             <img
               className="left-server-icons"
-              src={server.picture}
+              src={`${server.serverIcon}`}
               alt="server icon"
             />
+            <p>{server.name}</p>
           </NavLink>
         ))}
       </div>

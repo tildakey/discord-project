@@ -17,9 +17,9 @@ const MessageInput = ({ sendMessage }) => {
   };
 
   return (
-    <form className="chat-input" onSubmit={handleSubmit}>
+    <form id="chat-input" onSubmit={handleSubmit}>
       <input
-        className="chat-message-input"
+        id="chat-message-input"
         placeholder="Send a message!"
         onChange={(e) => setChatContent(e.target.value)}
         value={chatContent}

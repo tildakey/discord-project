@@ -1,0 +1,24 @@
+#chat-input {
+    flex-shrink: 0;
+    min-height: 40px;
+    height: fit-content;
+    max-height: 70px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    align-self: center;
+    padding-left: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #40444b;
+    border-radius: 5px;
+    overflow: auto;
+  }
+
+  #chat-message-input {
+    background-color: #40444b;
+    border-style: none;
+    outline: none;
+    color: inherit;
+    border-radius: 5px;
+  }

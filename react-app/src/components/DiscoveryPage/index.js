@@ -75,7 +75,7 @@ const DiscoveryPage = () => {
                         {server.description}
                       </h6>
                       <h6 className="member-len">
-                        {server.membersLength} members
+                        {server.numOfMembers} members
                       </h6>
                     </div>
                     <NavLink

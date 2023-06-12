@@ -1,0 +1,65 @@
+.container-all-servers {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  .headers-all-servers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 340px;
+  }
+
+  .header-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    top: -280px;
+  }
+
+  .featured {
+    margin-left: 30px;
+    margin-top: -90px;
+  }
+
+  .all-servers-mapping {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 30px 0 30px;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-server {
+    margin: 10px 0 0 0;
+  }
+  
+  .description-server {
+    margin: 10px 10px;
+  }
+
+  .members_length {
+    margin: 0;
+  }
+
+  .join-server-button {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 20px;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #3aa65d;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 4px 8px;
+  }

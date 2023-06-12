@@ -8,7 +8,6 @@ const MainView = ({ user }) => {
 
     return (
           <div>
-          <h1>MAINVIEW</h1>
             <Switch>
               <Route
                 path="/channels/:serverId/:channelId"

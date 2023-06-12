@@ -1,0 +1,29 @@
+.all-channels-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10px;
+  }
+
+  .channels {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    margin-left: 92px;
+  }
+
+  .channel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px;
+    width: 100%;
+  }
+
+  .all-channels-right {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+  }

@@ -34,7 +34,7 @@ def create_a_server():
     ##- name of General Chat
     ## - 4 - creating the welcome message that is displayed on the General Chat
     ## - 5 -creating the welcome message that is displayed on the General Chat
-    server = Server(owner_id=current_user.id, name=request.form['name'])
+    server = Server(owner_id=current_user.id, name=request.form['name'], server_icon='https://res.cloudinary.com/dhruiovd0/image/upload/v1686429278/604150242d4c6f111dc4e0e8_AMXD2mEvYtyJeooktUtHlCW0f3vrpbwrCN0KjvULcmHdfWBRaAyxA9cSiPn_t6wHhI4mm1qbImd2ewbgBQwm-EtT8hZVevgGiACcBFZ58UQC6EPLcV-mQtaHVb02PzhRrjrpYsnz_k5yxgz.png')
     db.session.add(server)
     db.session.commit()
     owner = ServerMember(server_id=server.id, user_id=server.owner_id)
