@@ -17,7 +17,7 @@ function Navigation({ isLoaded }) {
 
 	const demoLogin = async (e) => {
 		e.preventDefault()
-		dispatch(demoUser())
+		await dispatch(demoUser())
 		history.push('/discovery')
 	}
 

@@ -83,7 +83,6 @@ const CreateANewChannel = () => {
         <label className="inputs" htmlFor="text_chan">
           <div className="label-inputs-contain">
             <div className="label-messages">
-              <p>Text Channel</p>
             </div>
           </div>
         </label>
@@ -109,16 +108,13 @@ const CreateANewChannel = () => {
       )}
       <div className="add-channel-buttons-contain">
         <div className="add-channel-buttons">
-          <h5 style={{ cursor: "pointer" }} onClick={() => closeModal()}>
+          <h5 style={{ cursor: "pointer" }} className={ "button-like-text button-container"} onClick={() => closeModal()}>
             Cancel
           </h5>
 
           <h5
-            className={
-              activeCreate
-                ? "create-channel-button-active"
-                : "create-channel-button-inactive"
-            }
+            style={{ cursor: "pointer" }}
+            className={ "button-like-text button-container"}
             onClick={activeCreate ? handleSubmit : () => validate()}
           >
             Create Channel

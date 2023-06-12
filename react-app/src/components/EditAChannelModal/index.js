@@ -137,7 +137,7 @@ const EditAChannel = ({ user, setShowModal }) => {
                   onChange={(e) => setName(e.target.value.replace(" ", "-"))}
                 ></input>
                 <div
-                  className="delete"
+                  className="button-like-text button-container"
                   onClick={handleDelete}
                   style={{ cursor: "pointer", gap: "10px" }}
                 >
@@ -159,11 +159,11 @@ const EditAChannel = ({ user, setShowModal }) => {
                   <h4>Remember to save your changes!</h4>
                 </div>
                 <div className="reset-buttons">
-                  <h5 className="reset" onClick={reset} style={{ cursor: "pointer" }}>
+                  <h5 className="button-like-text button-container" onClick={reset} style={{ cursor: "pointer" }}>
                     Reset
                   </h5>
                   <h5
-                    className={activeEdit ? "save active-save" : "save"}
+                    className={"button-like-text button-container"}
                     onClick={activeEdit ? handleSubmit : () => validate}
                     style={
                       activeEdit ? { cursor: "pointer" } : { cursor: "default" }
@@ -177,9 +177,9 @@ const EditAChannel = ({ user, setShowModal }) => {
           </div>
         )}
       </div>
-      <div onClick={checkChanges} className="escape-container" style={{ cursor: "pointer" }}>
+      {/* <div onClick={checkChanges} className="button-like-text button-container" style={{ cursor: "pointer" }}>
         <h5 className="esc">Cancel</h5>
-      </div>
+      </div> */}
     </div>
   );
 };

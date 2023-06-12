@@ -9,7 +9,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import LeftNavBar from "./components/LeftNav"
+import LeftNavBar from "./components/LeftNav";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function App() {
             <DiscoveryPage />
           </Route>
           <Route path="/channels">
-          <LeftNavBar />
+          <LeftNavBar/>
             <MainView />
           </Route>
         </Switch>

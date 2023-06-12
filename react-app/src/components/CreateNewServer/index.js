@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { postUserServer } from "../../store/servers";
+import { postUserServer, setUserServers, getAllServers } from "../../store/servers";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "../EditAChannelModal/EditAChannelModal.css"
@@ -116,18 +116,18 @@ const CreateNewServer = () => {
           </p>
           <div>
             <button
-              className="create-my-server"
+              className="button-container"
               onClick={() => handleTransition(1)}
             >
-              <div className="create-my-server-left">
+              <div className="button-container">
                 <p>For a club or community</p>
               </div>
             </button>
             <button
-              className="create-my-server"
+              className="button-container"
               onClick={() => handleTransition(1)}
             >
-              <div className="create-my-server-left">
+              <div className="button-container">
                 <p>For me and my friends</p>
               </div>
             </button>
@@ -141,8 +141,8 @@ const CreateNewServer = () => {
         <div className="finalize-server">
           <h1>Customize your server</h1>
           <p>
-            Give your new server a personality with a name and an icon. You can
-            always change it later - ADD LATER
+            Give your new server a personality with a name. You can
+            always change it later
           </p>
           {errors.length > 0 &&
             errors.map((error) => (
@@ -162,8 +162,8 @@ const CreateNewServer = () => {
             ></input>
           </div>
 
-          <div className="add-channel-buttons-contain">
-            <button onClick={() => handleTransition(-2)} className="back_text">
+          <div className="button-container">
+            <button onClick={() => handleTransition(-2)} className="button-container">
               Back
             </button>
 

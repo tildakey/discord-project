@@ -8,16 +8,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import { useHistory } from "react-router-dom";
 import { getAChannel } from "../../store/channel";
+import { useEffect } from "react";
+import { getAllServers } from "../../store/servers";
 
 const LeftNav = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user)
-  const userServers = useSelector((state) => state.session.user?.serverMember)
+  const userServers = useSelector((state) => state.serversReducer.userServers)
   let history = useHistory()
   const currentChannels = useSelector((state) => state.serversReducer?.currentServer?.channels)
-  const handleHomeClick = async (channelId) => {
-    await dispatch(getAChannel(channelId));
-  };
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -39,7 +38,6 @@ const LeftNav = () => {
             ></img>
           </div>
         </NavLink>
-        <img className="left_side_icon" src={`${user.profilePic}`} alt="user pic"></img>
         <p>{user.username}</p>
             <button onClick={handleLogout}>Log Out</button>
         <span className="home-space" />
