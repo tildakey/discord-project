@@ -5,6 +5,7 @@ import { getAChannel } from "../../store/channel";
 import { useDispatch, useSelector } from "react-redux";
 import { putCurrentServer } from "../../store/servers";
 import { useModal } from "../../context/Modal";
+import "../EditAChannelModal/EditAChannelModal.css"
 
 const EditAServer = () => {
     const dispatch = useDispatch();
@@ -105,14 +106,7 @@ const EditAServer = () => {
             <div className="options-container">
                 <div className="edit-options">
                     {name ? <h5>{name.toUpperCase()}</h5> : <h5>Server Settings</h5>}
-                    <h4 onClick={() => setSelected("Overview")}>Overview</h4>
-                    <div
-                        className="delete"
-                        onClick={handleDelete}
-                        style={{ cursor: "pointer", gap: "10px" }}
-                    >
-                        <h3>Delete Server</h3>
-                    </div>
+                    {/* <h4 onClick={() => setSelected("Overview")}>Overview</h4> */}
                 </div>
             </div>
             <div className="info">
@@ -133,6 +127,13 @@ const EditAServer = () => {
                                     onChange={(e) => setName(e.target.value)}
                                 ></input>
                             </div>
+                            <div
+                        className="button-container button-like-text"
+                        onClick={handleDelete}
+                        style={{ cursor: "pointer", gap: "10px" }}
+                    >
+                        <h3>Delete Server</h3>
+                    </div>
                         </div>
                         {errors.length > 0 && (
                             <div className="errors_edit">
@@ -147,16 +148,17 @@ const EditAServer = () => {
                                     <h4>Careful</h4>
                                     <h4>you have unsaved changes!</h4>
                                 </div>
-                                <div className="reset-buttons">
+                                <div className="">
                                     <h5
-                                        className="reset"
+                                        className="button-container button-like-text"
                                         onClick={reset}
                                         style={{ cursor: "pointer" }}
                                     >
                                         Reset
                                     </h5>
                                     <h5
-                                        className={activeSave ? "save active_save" : "save"}
+                                        // className={activeSave ? "save active_save" : "save"}
+                                        className="button-container button-like-text"
                                         onClick={activeSave ? handleSubmit : () => validate}
                                         style={
                                             activeSave ? { cursor: "pointer" } : { cursor: "default" }
@@ -170,13 +172,13 @@ const EditAServer = () => {
                     </div>
                 )}
             </div>
-            <div
+            {/* <div
                 onClick={checkChanges}
                 className="escape-container"
                 style={{ cursor: "pointer" }}
             >
                 <h5 className="esc">ESC</h5>
-            </div>
+            </div> */}
         </div>
     );
 };
