@@ -19,12 +19,8 @@ function Navigation({ isLoaded }) {
 		e.preventDefault()
 		const data = await dispatch(demoUser())
 		if(data){
-			pushToDiscovery()
+			history.push('/discovery')
 		}
-	}
-
-	const pushToDiscovery = () => {
-		history.push('/discovery')
 	}
 
 	return (
